@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [CommonModule, MatToolbarModule, MatButtonModule, MatIconModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

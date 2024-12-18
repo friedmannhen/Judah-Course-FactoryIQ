@@ -13,6 +13,7 @@ import { Department } from '../../models';
 
 @Component({
   selector: 'app-machines-dashboard',
+  standalone: true,
   imports: [BaseChartDirective, MatButton, MatDivider],
   templateUrl: './machines-dashboard.component.html',
   styleUrl: './machines-dashboard.component.scss',
