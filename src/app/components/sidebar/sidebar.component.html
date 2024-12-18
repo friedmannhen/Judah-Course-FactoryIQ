@@ -1,0 +1,17 @@
+<div class="sidebar" [ngClass]="{ 'sidebar--open': sidebarOpen$ | async }">
+  <header class="sidebar__header">
+    <h2>Menu</h2>
+  </header>
+  <ul>
+    <li>Home</li>
+    <li>
+      <a
+        [routerLink]="['/machine-statuses']"
+        routerLinkActive="router-link-active"
+        >Machines</a
+      >
+    </li>
+    <li>Employees</li>
+    <li>Inventory</li>
+  </ul>
+</div>
