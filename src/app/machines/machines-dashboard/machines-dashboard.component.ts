@@ -5,8 +5,8 @@ import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 // import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js'/;
 // import { BaseChartDirective } from 'ng2-charts';
-import { MatButton } from '@angular/material/button';
-import { MatDivider } from '@angular/material/divider';
+// import { MatButton } from '@angular/material/button';
+// import { MatDivider } from '@angular/material/divider';
 import { Department } from '../../models';
 // import { Department } from '../../models/machine.interface';
 // import { ChartHostComponent } from '../chart-host/chart-host.component';
@@ -14,7 +14,7 @@ import { Department } from '../../models';
 @Component({
   selector: 'app-machines-dashboard',
   standalone: true,
-  imports: [BaseChartDirective, MatButton, MatDivider],
+  imports: [BaseChartDirective ],
   templateUrl: './machines-dashboard.component.html',
   styleUrl: './machines-dashboard.component.scss',
 })
