@@ -2,12 +2,10 @@
   <header class="sidebar__header">
     <h2>Menu</h2>
   </header>
-  <ul>
-    <li><a [routerLink]="['']">Home</a></li>
-    <li>
-      <a [routerLink]="['/machine-statuses']" routerLinkActive="router-link-active">Machines</a>
-    </li>
-    <li>Employees</li>
-    <li>Inventory</li>
-  </ul>
+  <mat-list>
+    <mat-list-item role="listitem" [routerLink]="['']">Home</mat-list-item>
+    <mat-list-item role="listitem" [routerLink]="['/machine-statuses']">Machines</mat-list-item>
+    <mat-list-item role="listitem">Employees</mat-list-item>
+    <mat-list-item role="listitem">Inventory</mat-list-item>
+  </mat-list>
 </div>

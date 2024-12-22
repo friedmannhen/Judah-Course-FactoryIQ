@@ -8,7 +8,7 @@ export class MachinesService {
   constructor() {
     setInterval(() => {
       this.mockMachineData();
-    }, 5000);
+    }, 2000);
   }
 
   private machinesData$: BehaviorSubject<any> = new BehaviorSubject([]);

@@ -3,11 +3,12 @@ import { UiService } from '../../services/ui.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,MatListModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })

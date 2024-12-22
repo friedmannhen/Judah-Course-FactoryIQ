@@ -1,9 +1,10 @@
 .sidebar {
-  width: 400px;
-  height: calc(100vh - 64px);
+  width: 200px;
+  padding:20px ;
+  height: calc(100vh - 104px);
   position: fixed;
   bottom: 0px;
-  left: -400px;
+  left: -440px;
   background: #cdebf6;
   transition: 0.2s all ease;
   overflow: hidden;
@@ -13,5 +14,13 @@
 
   &--open {
     left: 0px;
+  }
+
+  mat-list-item{
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  mat-list-item:hover{
+    background-color:#99bbc750
   }
 }
