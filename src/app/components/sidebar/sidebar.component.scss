@@ -1,11 +1,11 @@
 .sidebar {
   width: 200px;
   padding:20px ;
-  height: calc(100vh - 104px);
+  height: calc(100vh - 85px);
   position: fixed;
   bottom: 0px;
   left: -440px;
-  background: #cdebf6;
+  background: #6db3ccef;
   transition: 0.2s all ease;
   overflow: hidden;
   -webkit-box-shadow: 2px 3px 15px -4px rgba(0, 0, 0, 0.75);
@@ -19,8 +19,14 @@
   mat-list-item{
     cursor: pointer;
     border-radius: 10px;
+    span{
+      color:rgb(66, 66, 66)
+    }
   }
   mat-list-item:hover{
-    background-color:#99bbc750
+    background-color:#9dd5e9;
+    span{
+      color: white;
+    }
   }
 }
