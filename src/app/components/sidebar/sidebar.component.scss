@@ -1,6 +1,6 @@
 .sidebar {
   width: 200px;
-  padding:20px ;
+  padding: 20px;
   height: calc(100vh - 85px);
   position: fixed;
   bottom: 0px;
@@ -11,21 +11,21 @@
   -webkit-box-shadow: 2px 3px 15px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 3px 15px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 2px 3px 15px -4px rgba(0, 0, 0, 0.75);
-
+  z-index: 100;
   &--open {
     left: 0px;
   }
 
-  mat-list-item{
+  mat-list-item {
     cursor: pointer;
     border-radius: 10px;
-    span{
-      color:rgb(66, 66, 66)
+    span {
+      color: rgb(66, 66, 66);
     }
   }
-  mat-list-item:hover{
-    background-color:#9dd5e9;
-    span{
+  mat-list-item:hover {
+    background-color: #9dd5e9;
+    span {
       color: white;
     }
   }

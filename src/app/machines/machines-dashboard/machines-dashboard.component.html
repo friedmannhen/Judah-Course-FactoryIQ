@@ -1,4 +1,15 @@
-<div class="container" style="width: 500px">
-  <canvas baseChart [data]="pieChartData" [type]="pieChartType" [options]="pieChartOptions">
-  </canvas>
+<div class="machines">
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab label="Charts">
+      <div class="machines__charts">
+        <div class="machine-pie-chart" *ngFor="let item of chartsData | keyvalue">
+          <h2 [routerLink]="['/machine-statuses', item.key]">{{ item.key }} </h2>
+          <app-pie [pieChartData]="item.value" [pieChartOptions]="pieChartOptions"></app-pie>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Table">
+      <app-machines-table [departmentsData]="departmentsData"></app-machines-table>
+    </mat-tab>
+  </mat-tab-group>
 </div>

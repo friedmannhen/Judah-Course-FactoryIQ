@@ -16,3 +16,13 @@ export interface Department {
   name: string;
   machines: Machine[];
 }
+
+export interface IMachineTable {
+  department: string;
+  machineId: number;
+  machineName: string;
+  efficiency: number;
+  pressure: number;
+  temperature: number;
+  status: string;
+}
