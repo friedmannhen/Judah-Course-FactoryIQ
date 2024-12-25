@@ -1,3 +1,6 @@
-<div class="barCharts" *ngFor="let chart of charts">
-  <app-bar-chart [chartData]="chart"></app-bar-chart>
+<h1>{{departmentName}}</h1>
+<div class="bar-chart-container">
+  <div class="bar-chart" *ngFor="let chart of charts,let i=index">
+    <app-bar-chart [chartData]="chart" [title]="chartsTitles[i]"></app-bar-chart>
+  </div>
 </div>

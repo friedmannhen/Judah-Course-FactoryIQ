@@ -69,8 +69,6 @@ export class MachinesDashboardComponent {
     this.sub.unsubscribe();
   }
 
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-
   public pieChartOptions: any = {
     plugins: {
       legend: {

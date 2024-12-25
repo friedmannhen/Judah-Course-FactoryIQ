@@ -7,9 +7,10 @@ import { Department } from '../models';
 })
 export class MachinesService {
   constructor() {
+    this.mockMachineData();
     setInterval(() => {
       this.mockMachineData();
-    }, 5000);
+    }, 3000);
   }
 
   private machinesData$: BehaviorSubject<Department[]> = new BehaviorSubject(

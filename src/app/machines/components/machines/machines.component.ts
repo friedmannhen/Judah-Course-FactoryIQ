@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MachinesService } from '../../../services/machines.service';
-import { filter, map, Subscription } from 'rxjs';
+import { map, tap, Subscription } from 'rxjs';
 import { Department } from '../../../models';
 import { ActivatedRoute } from '@angular/router';
 import { BarChartComponent } from '../../../components/bar-chart/bar-chart.component';
@@ -23,8 +23,10 @@ export class MachinesComponent {
 
   public barChartData: ChartData<'bar'>;
   public charts: Array<ChartData<'bar'>> = [];
+  public chartsTitles: string[] = [];
+  public departmentName: string;
   ngOnInit() {
-    const departmentName = this.activatedRoute.snapshot.params['department'];
+    this.departmentName = this.activatedRoute.snapshot.params['department'];
 
     this.sub.add(
       this.machineService
@@ -32,7 +34,7 @@ export class MachinesComponent {
         .pipe(
           map((data) => {
             const depIndex = data.findIndex((department) => {
-              return department.name === departmentName;
+              return department.name === this.departmentName;
             });
             return data[depIndex];
           })
@@ -40,7 +42,6 @@ export class MachinesComponent {
         .subscribe((data: Department) => {
           console.log(data);
           // const colors = ['#9BD0F5', '#973838', '#565099'];
-
           this.charts = [];
 
           data.machines.forEach((machine) => {
@@ -61,8 +62,8 @@ export class MachinesComponent {
             mappedData.datasets = [machineData];
 
             this.charts.push(mappedData);
+            this.chartsTitles.push(`${machine.name} (id: ${machine.id})`);
           });
-      
         })
     );
   }
