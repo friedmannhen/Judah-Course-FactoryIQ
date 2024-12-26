@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Department } from '../models';
+import { Department, Machine } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class MachinesService {
     this.mockMachineData();
     setInterval(() => {
       this.mockMachineData();
-    }, 10000);
+    }, 5000);
   }
 
   private machinesData$: BehaviorSubject<Department[]> = new BehaviorSubject(
@@ -19,6 +19,16 @@ export class MachinesService {
 
   public getMachinesData(): Observable<Department[]> {
     return this.machinesData$.asObservable();
+  }
+  public getMachineData(id: number): Machine {
+    const departments = this.machinesData$.getValue();
+    for (const department of departments) {
+      const machine = department.machines.find((machine) => machine.id == id);
+      if (machine) {
+        return machine;
+      }
+    }
+    return null;
   }
 
   mockMachineData(): void {

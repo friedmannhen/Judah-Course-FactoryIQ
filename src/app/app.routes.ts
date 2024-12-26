@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: MachinesComponent,
   },
   {
-    path: 'machine-statuses/:department/:machine',
+    path: 'machine-statuses/:department/:machine/:id',
     component: MachineComponent,
   },
 ];

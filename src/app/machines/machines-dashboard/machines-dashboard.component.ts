@@ -31,7 +31,6 @@ export class MachinesDashboardComponent {
   public departmentsData: Department[];
 
   ngOnInit() {
-    // const colors = ['#9BD0F5', '#973838', '#565099'];
     this.sub.add(
       this.machineService.getMachinesData().subscribe((data: Department[]) => {
         this.departmentsData = data;

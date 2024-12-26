@@ -1,2 +1,42 @@
-<h1>{{machineName}}</h1>
-<h4>{{department}}</h4>
+<div class="machine-details">
+    <h1 class="machine-title">Machine Details</h1>
+    <div *ngIf="machineData" class="machine-info">
+      <div class="machine-row">
+        <span class="label">ID:</span>
+        <span class="value">{{ machineData.id }}</span>
+      </div>
+      <div class="machine-row">
+        <span class="label">Name:</span>
+        <span class="value">{{ machineData.name }}</span>
+      </div>
+      <div class="machine-row">
+        <span class="label">Status:</span>
+        <span class="value status {{ machineData.status | lowercase }}" [ngStyle]="{'color': labelColorMap[machineData.status]}">
+          {{ machineData.status }}
+        </span>
+      </div>
+      <div class="machine-row">
+        <span class="label">Department:</span>
+        <span class="value">{{ department }}</span>
+      </div>
+      <h2 class="metrics-title">Metrics</h2>
+      <div class="metrics">
+        <div class="metric-row">
+          <span class="label">Efficiency:</span>
+          <span class="value">{{ machineData.metrics.efficiency }}%</span>
+        </div>
+        <div class="metric-row">
+          <span class="label">Temperature:</span>
+          <span class="value">{{ machineData.metrics.temperature }}°C</span>
+        </div>
+        <div class="metric-row">
+          <span class="label">Pressure:</span>
+          <span class="value">{{ machineData.metrics.pressure }} PSI</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!machineData" class="no-data">
+      <p>No machine data available.</p>
+    </div>
+  </div>
+  

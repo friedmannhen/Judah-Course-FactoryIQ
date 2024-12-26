@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MachinesService } from '../../../services/machines.service';
 import { map, Subscription } from 'rxjs';
 import { Department } from '../../../models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BarChartComponent } from '../../../components/bar-chart/bar-chart.component';
 import { CommonModule } from '@angular/common';
 import { ChartData } from 'chart.js';
@@ -10,7 +10,7 @@ import { ChartData } from 'chart.js';
 @Component({
   selector: 'app-machines',
   standalone: true,
-  imports: [CommonModule, BarChartComponent],
+  imports: [CommonModule, BarChartComponent,RouterLink],
   templateUrl: './machines.component.html',
   styleUrl: './machines.component.scss',
 })
@@ -23,7 +23,8 @@ export class MachinesComponent {
 
   public barChartData: ChartData<'bar'>;
   public charts: Array<ChartData<'bar'>> = [];
-  public chartsTitles: string[] = [];
+  public machinesName: string[] = [];
+  public machinesID: string[] = [];
   public departmentName: string;
   ngOnInit() {
     this.departmentName = this.activatedRoute.snapshot.params['department'];
@@ -40,8 +41,6 @@ export class MachinesComponent {
           })
         )
         .subscribe((data: Department) => {
-          // console.log(data);
-          // const colors = ['#9BD0F5', '#973838', '#565099'];
           this.charts = [];
 
           data.machines.forEach((machine) => {
@@ -56,13 +55,13 @@ export class MachinesComponent {
                 return machine.metrics[key];
               }),
               label: machine.name,
-              //colors: colors,
             };
 
             mappedData.datasets = [machineData];
 
             this.charts.push(mappedData);
-            this.chartsTitles.push(`${machine.name}`);
+            this.machinesName.push(`${machine.name}`);
+            this.machinesID.push(`${machine.id}`);
           });
         })
     );
