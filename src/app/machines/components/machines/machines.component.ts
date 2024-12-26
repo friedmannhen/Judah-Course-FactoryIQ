@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MachinesService } from '../../../services/machines.service';
-import { map, tap, Subscription } from 'rxjs';
+import { map, Subscription } from 'rxjs';
 import { Department } from '../../../models';
 import { ActivatedRoute } from '@angular/router';
 import { BarChartComponent } from '../../../components/bar-chart/bar-chart.component';
@@ -40,7 +40,7 @@ export class MachinesComponent {
           })
         )
         .subscribe((data: Department) => {
-          console.log(data);
+          // console.log(data);
           // const colors = ['#9BD0F5', '#973838', '#565099'];
           this.charts = [];
 
@@ -62,7 +62,7 @@ export class MachinesComponent {
             mappedData.datasets = [machineData];
 
             this.charts.push(mappedData);
-            this.chartsTitles.push(`${machine.name} (id: ${machine.id})`);
+            this.chartsTitles.push(`${machine.name}`);
           });
         })
     );

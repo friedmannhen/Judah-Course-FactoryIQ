@@ -1,5 +1,5 @@
 .table-container {
-  max-width:60%;
+  max-width: 100%;
 }
 
 .mat-mdc-form-field {
@@ -7,7 +7,6 @@
   width: 60%;
   margin-top: 20px;
 }
-
 
 .red {
   background-color: rgb(255, 190, 190);
@@ -26,4 +25,23 @@
 
 .red-border {
   box-shadow: 0px 0px 5px inset rgba(255, 48, 48, 0.781);
+}
+
+tr.mat-mdc-footer-row td {
+  font-weight: bold;
+  border-top: 2px solid black;
+}
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+.flex {
+  align-items: center;
+  display: flex;
+  gap: 10px;
 }

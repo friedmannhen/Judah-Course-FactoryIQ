@@ -60,7 +60,7 @@ export class MachinesDashboardComponent {
           this.chartsData[department.name] = this.pieChartData;
         });
 
-        console.log(data);
+        // console.log(data);
       })
     );
   }

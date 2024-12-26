@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Department, IMachineTable } from '../../../models';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-machines-table',
@@ -19,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatPaginatorModule,
     CommonModule,
     MatIconModule,
+    RouterLink
   ],
   templateUrl: './machines-table.component.html',
   styleUrl: './machines-table.component.scss',
@@ -73,7 +75,7 @@ export class MachinesTableComponent {
       });
     });
 
-    console.log('flat data: ', flatData);
+    // console.log('flat data: ', flatData);
     this.dataSource = new MatTableDataSource(flatData);
   }
 
@@ -86,5 +88,15 @@ export class MachinesTableComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  getAvarageEfficiency() {
+    return this.dataSource.data.reduce((acc, curr) => acc + curr.efficiency, 0) / this.dataSource.data.length;
+  }
+  getAvarageTemprature() {
+    return this.dataSource.data.reduce((acc, curr) => acc + curr.temperature, 0) / this.dataSource.data.length;
+  }
+  getAvaragePressure() {
+    return this.dataSource.data.reduce((acc, curr) => acc + curr.pressure, 0) / this.dataSource.data.length;
   }
 }

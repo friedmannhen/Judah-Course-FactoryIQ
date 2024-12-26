@@ -1,15 +1,17 @@
 import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ChartConfiguration, ChartData } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-bar-chart',
   standalone: true,
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective,RouterModule],
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.scss',
 })
 export class BarChartComponent {
+  constructor(private activatedRoute: ActivatedRoute) {}
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'> | undefined;
   //option 1 for title set / get.
   @Input() set title(value: string) {
@@ -22,6 +24,7 @@ export class BarChartComponent {
   get title(): string {
     return this._title;
   }
+  public department: string = '';
   //end option 1
 
   //option 2 for title ngOnChanges
@@ -32,7 +35,9 @@ export class BarChartComponent {
     this._chartData = chartData;
     this.chart?.update();
   }
-
+  ngOnInit(): void {
+    this.department = this.activatedRoute.snapshot.params['department'];
+  }
   private _chartData: ChartData<'bar'>;
 
   get chartData(): ChartData<'bar'> {

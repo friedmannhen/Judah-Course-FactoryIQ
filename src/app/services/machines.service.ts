@@ -10,7 +10,7 @@ export class MachinesService {
     this.mockMachineData();
     setInterval(() => {
       this.mockMachineData();
-    }, 3000);
+    }, 10000);
   }
 
   private machinesData$: BehaviorSubject<Department[]> = new BehaviorSubject(

@@ -1,4 +1,4 @@
-<div class="bar-chart">
+<div class="bar-chart" [routerLink]="['/machine-statuses',department,title]">
   <canvas baseChart [data]="chartData" [options]="barChartOptions" [type]="barChartType">
   </canvas>
 </div>
