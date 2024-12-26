@@ -46,14 +46,17 @@ export class MachinesDashboardComponent {
             }
           });
 
+          const labels = Object.keys(machinesObj);
+          const colors = this.getColorsForLabels(labels);
+  
 
           this.pieChartData = {
-            labels: Object.keys(machinesObj),
+            labels: labels,
             datasets: [
       
               {
                 data: Object.values(machinesObj),
-                // backgroundColor: colors,
+                backgroundColor: colors,
               },
             ],
           };
@@ -64,7 +67,15 @@ export class MachinesDashboardComponent {
       })
     );
   }
-
+  public labelColorMap: { [key: string]: string } = {
+    'Running': '#5CB338',
+    'Under Maintenance': '#FB4141',
+    'Idle': '#ECE852',
+  };
+  
+   getColorsForLabels(labels: string[]): string[] {
+    return labels.map(label => this.labelColorMap[label] || '#000000'); // Default to black if label not found
+  }
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
