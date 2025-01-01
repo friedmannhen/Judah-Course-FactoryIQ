@@ -15,7 +15,7 @@ export class InventoryService {
     }, 3);
     setInterval(() => {
       this.mockInventoryData();
-    },3000);
+    },30000);
   }
 
   private inventoryData$: BehaviorSubject<Department[]> = new BehaviorSubject(
