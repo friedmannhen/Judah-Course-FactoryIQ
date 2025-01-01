@@ -11,12 +11,6 @@ export interface Machine {
   metrics: Metrics;
 }
 
-export interface Department {
-  id: number;
-  name: string;
-  machines: Machine[];
-}
-
 export interface IMachineTable {
   department: string;
   machineId: number;

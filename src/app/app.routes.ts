@@ -3,6 +3,8 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { MachinesDashboardComponent } from './machines/machines-dashboard/machines-dashboard.component';
 import { MachinesComponent } from './machines/components/machines/machines.component';
 import { MachineComponent } from './machines/components/machine/machine.component';
+import { InventoryComponent } from './inventory/inventory/inventory.component';
+import { InventoryDashboardComponent } from './inventory/inventory-dashboard/inventory-dashboard.component';
 
 export const routes: Routes = [
   {
@@ -20,5 +22,9 @@ export const routes: Routes = [
   {
     path: 'machine-statuses/:department/:machine/:id',
     component: MachineComponent,
+  },
+  {
+    path: 'inventory',
+    component: InventoryDashboardComponent,
   },
 ];

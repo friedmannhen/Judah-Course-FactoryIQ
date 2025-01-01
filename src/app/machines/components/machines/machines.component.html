@@ -2,6 +2,6 @@
 <div class="bar-chart-container">
   <div class="bar-chart" *ngFor="let chart of charts,let i=index"
     [routerLink]="['/machine-statuses',departmentName,machinesName[i],machinesID[i]]">
-    <app-bar-chart [chartData]="chart" [machineName]="machinesName[i]"></app-bar-chart>
+    <app-bar-chart [chartData]="chart" [name]="machinesName[i]"></app-bar-chart>
   </div>
 </div>

@@ -1,0 +1,11 @@
+.bar-chart-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:50px
+}
+.bar-chart{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

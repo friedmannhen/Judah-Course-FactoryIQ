@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Machine } from '../../../models';
-import { MachinesService } from '../../../services/machines.service';
+import { MachinesService } from '../../services/machines.service';
 import { CommonModule } from '@angular/common';
 import { map, Subscription } from 'rxjs';
 

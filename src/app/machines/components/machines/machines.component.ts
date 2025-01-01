@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MachinesService } from '../../../services/machines.service';
+import { MachinesService } from '../../services/machines.service';
 import { map, Subscription } from 'rxjs';
 import { Department } from '../../../models';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -21,7 +21,6 @@ export class MachinesComponent {
   ) {}
   private sub: Subscription = new Subscription();
 
-  public barChartData: ChartData<'bar'>;
   public charts: Array<ChartData<'bar'>> = [];
   public machinesName: string[] = [];
   public machinesID: string[] = [];

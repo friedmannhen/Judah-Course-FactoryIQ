@@ -20,7 +20,7 @@ import { RouterLink } from '@angular/router';
     MatPaginatorModule,
     CommonModule,
     MatIconModule,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './machines-table.component.html',
   styleUrl: './machines-table.component.scss',
@@ -45,7 +45,10 @@ export class MachinesTableComponent {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
   private mapDepartmentsDataToTable(departmentsData: Department[]): void {
     /**
      * department
@@ -91,12 +94,21 @@ export class MachinesTableComponent {
   }
 
   getAvarageEfficiency() {
-    return this.dataSource.data.reduce((acc, curr) => acc + curr.efficiency, 0) / this.dataSource.data.length;
+    return (
+      this.dataSource.data.reduce((acc, curr) => acc + curr.efficiency, 0) /
+      this.dataSource.data.length
+    );
   }
   getAvarageTemprature() {
-    return this.dataSource.data.reduce((acc, curr) => acc + curr.temperature, 0) / this.dataSource.data.length;
+    return (
+      this.dataSource.data.reduce((acc, curr) => acc + curr.temperature, 0) /
+      this.dataSource.data.length
+    );
   }
   getAvaragePressure() {
-    return this.dataSource.data.reduce((acc, curr) => acc + curr.pressure, 0) / this.dataSource.data.length;
+    return (
+      this.dataSource.data.reduce((acc, curr) => acc + curr.pressure, 0) /
+      this.dataSource.data.length
+    );
   }
 }

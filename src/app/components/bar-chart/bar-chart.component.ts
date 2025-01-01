@@ -14,15 +14,15 @@ export class BarChartComponent {
   constructor(private activatedRoute: ActivatedRoute) {}
   @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'> | undefined;
   //option 1 for title set / get.
-  @Input() set machineName(value: string) {
-    this._machineName = value;
-    this.barChartOptions.plugins.title.text = this._machineName;
+  @Input() set name(value: string) {
+    this._name = value;
+    this.barChartOptions.plugins.title.text = this._name;
     this.chart?.update();
   }
-  private _machineName: string = '';
+  private _name: string = '';
   // in this case not necessary to use get title() becaues we are not using title in the template and instead we update it in the set title method.
-  get machineName(): string {
-    return this._machineName;
+  get name(): string {
+    return this._name;
   }
   public department: string = '';
   //end option 1

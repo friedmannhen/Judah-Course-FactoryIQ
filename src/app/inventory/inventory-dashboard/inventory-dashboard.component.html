@@ -1,0 +1,11 @@
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab label="Table">
+        <app-inventory [departmentsData]="departmentsData"></app-inventory>
+    </mat-tab>
+    <mat-tab label="Bar Chart">
+        <app-inventory-bar></app-inventory-bar>
+    </mat-tab>
+    <mat-tab label="Stock Overtime">
+        <app-inventory-line></app-inventory-line>
+    </mat-tab>
+</mat-tab-group>

@@ -1,14 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
-import { MachinesService } from '../../services/machines.service';
+import { Component } from '@angular/core';
+import { MachinesService } from '../services/machines.service';
 import { Subscription } from 'rxjs';
-import { BaseChartDirective } from 'ng2-charts';
 import { Department, IPieChart } from '../../models';
 import { PieComponent } from '../../components/pie/pie.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MachinesTableComponent } from '../components/machines-table/machines-table.component';
-
+import {MatCardModule} from '@angular/material/card';
+import { MatButton } from '@angular/material/button';
 @Component({
   selector: 'app-machines-dashboard',
   standalone: true,
@@ -18,6 +18,8 @@ import { MachinesTableComponent } from '../components/machines-table/machines-ta
     RouterModule,
     MatTabsModule,
     MachinesTableComponent,
+    MatCardModule,
+    MatButton,
   ],
   templateUrl: './machines-dashboard.component.html',
   styleUrl: './machines-dashboard.component.scss',
